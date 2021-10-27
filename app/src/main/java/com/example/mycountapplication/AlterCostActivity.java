@@ -51,6 +51,9 @@ public class AlterCostActivity extends AppCompatActivity {
         String moneyStr = et_cost_money.getText().toString().trim();
         String dateStr = dp_cost_date.getYear() + "-" + (dp_cost_date.getMonth() + 1) + "-"
                 + dp_cost_date.getDayOfMonth();//这里getMonth会比当前月份少一个月，所以要+1
+        int yearInt =  dp_cost_date.getYear();
+        int monthInt = dp_cost_date.getMonth() + 1;
+        int dayInt = dp_cost_date.getDayOfMonth();
 
         if ("".equals(moneyStr)) {//可以不填写Title但是不能不填金额
             Toast toast = Toast.makeText(this, "请填写金额", Toast.LENGTH_SHORT);
@@ -62,6 +65,9 @@ public class AlterCostActivity extends AppCompatActivity {
             values.put("Title", titleStr);
             values.put("Money", moneyStr);
             values.put("Date", dateStr);
+            values.put("Year", yearInt);
+            values.put("Month", monthInt);
+            values.put("Day", dayInt);
 
             long account = db.update("account", values, "_id = ?", new String[] {id});
 

@@ -3,6 +3,7 @@ package com.example.mycountapplication;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -45,16 +46,23 @@ public class ListAdapter extends BaseAdapter{
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        View view=mLayoutInflater.inflate(R.layout.list_item,null);
-        //取出数据赋值
-        costList item=mList.get(position);
+        //0是支出，1是收入
+        costList item = mList.get(position);
+        int type = item.getType();
+        View view = null;
+        if(type == 0) {
+            view = mLayoutInflater.inflate(R.layout.list_item2,null);
+        }else if (type == 1) {
+            view = mLayoutInflater.inflate(R.layout.list_item,null);
+        }
+        //绑定
         TextView tv_title=view.findViewById(R.id.tv_title);
         TextView tv_date=view.findViewById(R.id.tv_date);
         TextView tv_money=view.findViewById(R.id.tv_money);
-        //绑定
-        tv_title.setText(mList.get(position).getTitle());
-        tv_date.setText(mList.get(position).getDate());
-        tv_money.setText(mList.get(position).getMoney());
+        //赋值
+        tv_title.setText(item.getTitle());
+        tv_date.setText(item.getDate());
+        tv_money.setText(item.getMoney());
         return view;
     }
 

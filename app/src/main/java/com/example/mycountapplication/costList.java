@@ -5,6 +5,15 @@ public class costList {
     private String Title;
     private String Date;
     private String Money;
+    private int Type;
+
+    public int getType() {
+        return Type;
+    }
+
+    public void setType(int type) {
+        Type = type;
+    }
 
     public String getMoney() {
         return Money;

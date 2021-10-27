@@ -6,6 +6,16 @@
     android:orientation="vertical"
     android:gravity="center">
 
+    <Spinner
+        android:id="@+id/spinner_ci"
+        android:layout_width="364dp"
+        android:layout_height="68dp"
+        android:entries="@array/cost_income" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="43dp" />
+
     <EditText
         android:id="@+id/et_cost_title"
         android:layout_width="401dp"
@@ -45,4 +55,5 @@
         android:layout_marginLeft="40dp"
         android:layout_marginRight="40dp"
         />
+
 </LinearLayout>

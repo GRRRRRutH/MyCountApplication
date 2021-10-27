@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/AndroidStudioProjects/MyCountApplication/app/src/main/res/drawable/ic_launcher_background.xml" value="0.26979166666666665" />
         <entry key="..\:/AndroidStudioProjects/MyCountApplication/app/src/main/res/layout/activity_alter_cost.xml" value="0.25364583333333335" />
         <entry key="..\:/AndroidStudioProjects/MyCountApplication/app/src/main/res/layout/activity_alter_cost2.xml" value="0.25364583333333335" />
         <entry key="..\:/AndroidStudioProjects/MyCountApplication/app/src/main/res/layout/activity_cost_list.xml" value="0.25364583333333335" />
@@ -10,6 +11,7 @@
         <entry key="..\:/AndroidStudioProjects/MyCountApplication/app/src/main/res/layout/activity_main2.xml" value="0.25364583333333335" />
         <entry key="..\:/AndroidStudioProjects/MyCountApplication/app/src/main/res/layout/activity_new_cost.xml" value="0.25364583333333335" />
         <entry key="..\:/AndroidStudioProjects/MyCountApplication/app/src/main/res/layout/list_item.xml" value="0.25364583333333335" />
+        <entry key="..\:/AndroidStudioProjects/MyCountApplication/app/src/main/res/layout/list_item2.xml" value="0.25364583333333335" />
       </map>
     </option>
   </component>

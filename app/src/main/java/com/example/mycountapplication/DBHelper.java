@@ -21,7 +21,11 @@ public class DBHelper extends SQLiteOpenHelper {
                 "(_id integer primary key autoincrement," +//主键
                 "Title varchar(20)," +//Title
                 "Date varchar(20)," +//Date
-                "Money vaechar(20))";//Money
+                "Money varchar(20)," +//Money
+                "Year varchar(4)," +
+                "Month varchar(2)," +
+                "Day varchar(2)," +
+                "Type integer)";
         db.execSQL(sql);
     }
 
