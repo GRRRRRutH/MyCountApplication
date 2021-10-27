@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyCountApplication">
         <activity
+            android:name=".AlterCostActivity"
+            android:exported="true" />
+        <activity
             android:name=".new_cost"
             android:exported="true" />
         <activity

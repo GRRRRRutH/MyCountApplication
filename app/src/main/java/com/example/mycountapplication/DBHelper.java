@@ -17,7 +17,8 @@ public class DBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String sql="create table account(_id integer primary key autoincrement," +//主键
+        String sql="create table account" +
+                "(_id integer primary key autoincrement," +//主键
                 "Title varchar(20)," +//Title
                 "Date varchar(20)," +//Date
                 "Money vaechar(20))";//Money

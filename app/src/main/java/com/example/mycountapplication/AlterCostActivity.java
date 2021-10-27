@@ -3,6 +3,7 @@ package com.example.mycountapplication;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.ContentValues;
+import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -11,30 +12,41 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
-public class new_cost extends AppCompatActivity {
+public class AlterCostActivity extends AppCompatActivity {
     private DBHelper helper;
     private EditText et_cost_title;
     private EditText et_cost_money;
     private DatePicker dp_cost_date;
 
+    private String id;
+    private String costTitle;
+    private String costMoney;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_new_cost);
+        setContentView(R.layout.activity_alter_cost);
         initView();
+
+        //获取传输的数据
+        Intent intent=getIntent();
+        costTitle = intent.getStringExtra("costTitle");
+        costMoney = intent.getStringExtra("costMoney");
+        id = intent.getStringExtra("id");
+        //修改显示的数据
+        et_cost_title.setText(costTitle);
+        et_cost_money.setText(costMoney);
     }
 
     private void initView() {
-        helper = new DBHelper(new_cost.this);
+        helper = new DBHelper(AlterCostActivity.this);
         et_cost_title = findViewById(R.id.et_cost_title);
         et_cost_money = findViewById(R.id.et_cost_money);
         dp_cost_date = findViewById(R.id.dp_cost_date);
     }
 
-    public void okButton(View view) {
+    //修改数据库
+    public void changeButton(View view) {
         String titleStr = et_cost_title.getText().toString().trim();
         String moneyStr = et_cost_money.getText().toString().trim();
         String dateStr = dp_cost_date.getYear() + "-" + (dp_cost_date.getMonth() + 1) + "-"
@@ -50,12 +62,14 @@ public class new_cost extends AppCompatActivity {
             values.put("Title", titleStr);
             values.put("Money", moneyStr);
             values.put("Date", dateStr);
-            long account = db.insert("account", null, values);
+
+            long account = db.update("account", values, "_id = ?", new String[] {id});
+
             if (account > 0) {
-                Toast toast = Toast.makeText(this, "保存成功", Toast.LENGTH_SHORT);
+                Toast toast = Toast.makeText(this, "修改成功", Toast.LENGTH_SHORT);
                 toast.setGravity(Gravity.CENTER, 0, 0);
                 toast.show();
-                setResult(1);
+                setResult(2);
                 finish();
             } else {
                 Toast toast = Toast.makeText(this, "请重试", Toast.LENGTH_SHORT);
@@ -63,8 +77,30 @@ public class new_cost extends AppCompatActivity {
                 toast.show();
                 db.close();
             }
-            setResult(1);
+            setResult(2);
             finish();
         }
+    }
+
+    //删除数据
+    public void deleteButton(View view) {
+        SQLiteDatabase db = helper.getReadableDatabase();
+
+        long account = db.delete("account", "_id = ?", new String[] {id});
+
+        if (account > 0) {
+            Toast toast = Toast.makeText(this, "删除成功", Toast.LENGTH_SHORT);
+            toast.setGravity(Gravity.CENTER, 0, 0);
+            toast.show();
+            setResult(2);
+            finish();
+        } else {
+            Toast toast = Toast.makeText(this, "请重试", Toast.LENGTH_SHORT);
+            toast.setGravity(Gravity.CENTER, 0, 0);
+            toast.show();
+            db.close();
+        }
+        setResult(2);
+        finish();
     }
 }

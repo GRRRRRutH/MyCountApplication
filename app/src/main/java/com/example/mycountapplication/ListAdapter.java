@@ -1,16 +1,26 @@
 package com.example.mycountapplication;
 
+import android.content.ComponentName;
 import android.content.Context;
+import android.content.Intent;
+import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Adapter;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.annotation.Nullable;
+
+import java.util.HashMap;
 import java.util.List;
+import java.util.Vector;
 
-public class ListAdapter extends BaseAdapter {
+public class ListAdapter extends BaseAdapter{
     List<costList> mList;
 
     public ListAdapter(List<costList>list)
@@ -46,7 +56,6 @@ public class ListAdapter extends BaseAdapter {
         tv_date.setText(mList.get(position).getDate());
         tv_money.setText(mList.get(position).getMoney());
         return view;
-
     }
 
     private List<costList>getmList;
