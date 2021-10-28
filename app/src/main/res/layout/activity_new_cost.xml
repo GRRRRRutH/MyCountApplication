@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -8,52 +10,84 @@
 
     <Spinner
         android:id="@+id/spinner_ci"
-        android:layout_width="364dp"
-        android:layout_height="68dp"
-        android:entries="@array/cost_income" />
-
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="43dp" />
+        android:layout_width="367dp"
+        android:layout_height="63dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="528dp"
+        android:entries="@array/cost_income"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.487"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/et_cost_title"
-        android:layout_width="401dp"
-        android:layout_height="63dp"
-        android:layout_margin="4dp"
+        android:layout_width="382dp"
+        android:layout_height="60dp"
+        android:layout_above="@+id/dp_cost_date"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
         android:hint="Cost Title"
         android:textColor="#8BC34A"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.516"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.353" />
 
     <EditText
         android:id="@+id/et_cost_money"
-        android:layout_width="401dp"
-        android:layout_height="58dp"
-        android:layout_margin="4dp"
+        android:layout_width="381dp"
+        android:layout_height="55dp"
+        android:layout_above="@+id/dp_cost_date"
+        android:layout_alignStart="@+id/et_cost_title"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
         android:hint="Cost Money"
         android:inputType="number|numberDecimal"
         android:textColor="#ffbd27"
-        android:textSize="24sp" />
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.486"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.448" />
 
     <DatePicker
         android:id="@+id/dp_cost_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:datePickerMode="spinner"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
         android:calendarViewShown="false"
-        />
+        android:datePickerMode="spinner"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.753" />
 
     <Button
-        android:onClick="okButton"
-        android:layout_width="match_parent"
+        android:layout_width="322dp"
         android:layout_height="wrap_content"
-        android:text="确认"
-        android:textSize="20dp"
-        android:textColor="#333333"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
         android:background="#8BC34A"
-        android:layout_marginLeft="40dp"
-        android:layout_marginRight="40dp"
-        />
-
-</LinearLayout>
+        android:onClick="okButton"
+        android:text="确认"
+        android:textColor="#333333"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.932" />
+</androidx.constraintlayout.widget.ConstraintLayout>
