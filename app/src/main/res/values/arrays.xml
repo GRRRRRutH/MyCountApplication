@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="spingarr">
-        <item>本日支出</item>
-        <item>本月支出</item>
-        <item>本年支出</item>
-        <item>其他日期</item>
+        <item>本日</item>
+        <item>本月</item>
+        <item>本年</item>
     </string-array>
 
     <string-array name="cost_income">

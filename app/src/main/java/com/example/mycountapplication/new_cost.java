@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.ContentValues;
 import android.content.res.Resources;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
@@ -44,13 +45,16 @@ public class new_cost extends AppCompatActivity {
                     type = 0;
                     et_cost_title.setHint("Cost Title");
                     et_cost_money.setHint("Cost Money");
+                    et_cost_title.setTextColor(Color.parseColor("#C8390D"));
                 }else if(text.equals("收入")) {
                     select = 2;
                     type = 1;
                     et_cost_title.setHint("Income Title");
                     et_cost_money.setHint("Income Money");
+                    et_cost_title.setTextColor(Color.parseColor("#8BC34A"));
                 }
             }
+
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
 

@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
@@ -21,6 +22,7 @@ public class AlterCostActivity extends AppCompatActivity {
     private String id;
     private String costTitle;
     private String costMoney;
+    private String type;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,9 +35,13 @@ public class AlterCostActivity extends AppCompatActivity {
         costTitle = intent.getStringExtra("costTitle");
         costMoney = intent.getStringExtra("costMoney");
         id = intent.getStringExtra("id");
+        type = intent.getStringExtra("type");
         //修改显示的数据
         et_cost_title.setText(costTitle);
         et_cost_money.setText(costMoney);
+        if(type.equals("0")) {
+            et_cost_title.setTextColor(Color.parseColor("#C8390D"));
+        }
     }
 
     private void initView() {
